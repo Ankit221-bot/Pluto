@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free online PDF compression tool. Compress and reduce your PDF file size with adjustable compression levels. SEO-optimized and ad-monetized.">
+  <meta name="keywords" content="PDF compressor, compress PDF, reduce PDF size, online PDF tool">
+  <meta name="author" content="Ankit Kumar Dalai">
+  <title>PDF Compressor - Reduce PDF File Size Online</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    .ad-space {
+      min-height: 90px;
+      margin: 20px 0;
+      background-color: #f9f9f9;
+      text-align: center;
+      padding: 10px;
+      border: 1px dashed #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header class="container text-center py-4">
+    <h1>Online PDF Compressor</h1>
+    <p>Reduce your PDF file size easily and quickly</p>
+  </header>
+
+  <div class="container">
+    <!-- Ad Unit Top -->
+    <div class="ad-space">
+      <!-- Google AdSense Code Insert Here -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXX"
+           data-ad-slot="1111111111"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <form id="pdfForm" class="mb-4">
+      <div class="mb-3">
+        <label for="pdfFile" class="form-label">Select PDF File</label>
+        <input type="file" class="form-control" id="pdfFile" accept="application/pdf" required>
+      </div>
+      <div class="mb-3">
+        <label for="compressionLevel" class="form-label">Compression Level</label>
+        <select class="form-select" id="compressionLevel">
+          <option value="low">Low (Best Quality)</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High (Max Compression)</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Compress PDF</button>
+    </form>
+
+    <!-- Result Section -->
+    <div id="result" class="text-center"></div>
+
+    <!-- Ad Unit Bottom -->
+    <div class="ad-space">
+      <!-- Google AdSense Code Insert Here -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXX"
+           data-ad-slot="2222222222"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </div>
+
+  <footer class="container text-center py-4">
+    <p>&copy; 2025 YourCompany - All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("pdfForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const file = document.getElementById("pdfFile").files[0];
+      const level = document.getElementById("compressionLevel").value;
+
+      if (!file || file.type !== "application/pdf") {
+        alert("Please select a valid PDF file.");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("compression", level);
+
+      document.getElementById("result").innerHTML = "<p>Compressing, please wait...</p>";
+
+      // Simulated compression backend interaction
+      // Replace with your server endpoint
+      try {
+        const response = await fetch("/api/compress-pdf", {
+          method: "POST",
+          body: formData
+        });
+
+        if (response.ok) {
+          const blob = await response.blob();
+          const url = window.URL.createObjectURL(blob);
+          document.getElementById("result").innerHTML = `
+            <a href="${url}" download="compressed.pdf" class="btn btn-success mt-3">Download Compressed PDF</a>
+          `;
+        } else {
+          document.getElementById("result").innerHTML = "<p>Failed to compress the PDF.</p>";
+        }
+      } catch (error) {
+        document.getElementById("result").innerHTML = `<p>Error: ${error.message}</p>`;
+      }
+    });
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</body>
+</html>
