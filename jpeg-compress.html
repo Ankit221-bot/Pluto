@@ -3,125 +3,243 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Free online JPEG compression tool to reduce image size with adjustable quality levels. Optimize images for web performance and SEO." />
-  <meta name="keywords" content="JPEG compressor, image compression, online tool, reduce image size, optimize jpeg" />
+  <meta name="description" content="Free JPEG compression tool to reduce file size while maintaining image quality. Compress and optimize JPEG images online." />
+  <meta name="keywords" content="JPEG compression, image size reducer, free photo optimizer, compress JPEG" />
   <meta name="author" content="Ankit Kumar Dalai" />
-  <title>JPEG Compression Tool - Optimize Your Images Online</title>
+  <title>JPEG Image Compression Tool - Fast & Free</title>
 
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR_ADSENSE_CLIENT_ID" crossorigin="anonymous"></script>
+  <!-- Google Fonts and Font Awesome for icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <style>
+    * { box-sizing: border-box; }
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f4f4;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #333;
     }
     header {
-      background: #333;
+      background: #1e1e2f;
       color: white;
-      padding: 1rem;
+      padding: 2rem;
       text-align: center;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
     }
     .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 1000px;
+      margin: 3rem auto;
+      background: #fff;
+      padding: 3rem;
+      border-radius: 25px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+      text-align: center;
     }
-    input[type="file"], input[type="range"] {
+    label {
+      font-weight: 600;
       display: block;
-      margin: 1rem 0;
+      margin: 1.5rem 0 0.5rem;
+      color: #2b2d42;
+      font-size: 1.2rem;
     }
-    #outputImage {
-      max-width: 100%;
-      display: block;
+    .upload-box {
+      border: 3px dashed #aaa;
+      padding: 2.5rem;
+      border-radius: 20px;
+      cursor: pointer;
+      background: #f7faff;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .upload-box:hover {
+      background: #e8f0fc;
+      transform: scale(1.02);
+    }
+    .upload-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1e1e2f;
+    }
+    .upload-label i {
+      font-size: 2.4rem;
+      margin-bottom: 0.6rem;
+      color: #4b6cb7;
+    }
+    input[type="file"] {
+      display: none;
+    }
+    input[type="range"] {
+      width: 100%;
       margin-top: 1rem;
     }
-    .ads {
-      margin: 2rem 0;
-      text-align: center;
+    .range-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
     }
-    footer {
+    .ad-space {
+      margin: 3rem 0;
+      background: #fdfdfd;
+      padding: 2rem;
       text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      background: #eee;
-      margin-top: 2rem;
+      border: 3px dashed #ddd;
+      border-radius: 18px;
+    }
+    #output-img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 1.5rem;
+      display: none;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+    button {
+      background: linear-gradient(90deg, #ff416c, #ff4b2b);
+      color: white;
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 14px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #e63950, #e84527);
+      transform: scale(1.05);
+    }
+    a.download-link {
+      display: inline-block;
+      margin-top: 1.2rem;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      background: #4b6cb7;
+      padding: 0.8rem 1.4rem;
+      border-radius: 12px;
+    }
+    a.download-link:hover {
+      background: #395aa9;
+    }
+    @media screen and (max-width: 600px) {
+      .container {
+        padding: 1.5rem;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>JPEG Compression Tool</h1>
-    <p>Reduce image size and optimize your JPEGs online</p>
+    <h1><i class="fas fa-compress-arrows-alt"></i> JPEG Compression Tool</h1>
   </header>
 
   <div class="container">
-    <label for="imageInput">Upload JPEG Image:</label>
-    <input type="file" id="imageInput" accept="image/jpeg" />
-
-    <label for="qualityRange">Compression Quality: <span id="qualityValue">75</span>%</label>
-    <input type="range" id="qualityRange" min="1" max="100" value="75" />
-
-    <button onclick="compressImage()">Compress Image</button>
-
-    <canvas id="canvas" style="display:none;"></canvas>
-    <img id="outputImage" alt="Compressed output" />
-
-    <div class="ads">
-      <!-- AdSense Ad Unit -->
+    <div class="ad-space">
+      <!-- ca-app-pub-8366972084779868/6427498899 -->
       <ins class="adsbygoogle"
            style="display:block"
-           data-ad-client="YOUR_ADSENSE_CLIENT_ID"
-           data-ad-slot="YOUR_AD_UNIT_ID"
+           data-ad-client="ca-app-pub-8366972084779868~1932277151"
+           data-ad-slot="1111111111"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <label for="imageInput">Upload JPEG Image:</label>
+    <div class="upload-box" onclick="document.getElementById('imageInput').click();">
+      <input type="file" id="imageInput" accept="image/jpeg" />
+      <div class="upload-label">
+        <i class="fas fa-upload"></i>
+        Click or tap to choose a JPEG image
+      </div>
+    </div>
+
+    <label for="qualityRange">Compression Level:</label>
+    <div class="range-wrapper">
+      <input type="range" id="qualityRange" min="10" max="100" value="70" />
+      <span><strong><span id="qualityValue">70</span>%</strong></span>
+    </div>
+
+    <button onclick="compressImage()">Compress Image</button>
+    <img id="output-img" alt="Compressed Image" />
+
+    <div class="ad-space">
+      <!-- ca-app-pub-8366972084779868/1997299290 -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-app-pub-8366972084779868~1932277151"
+           data-ad-slot="2222222222"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
   </div>
 
-  <footer>
-    &copy; 2025 JPEG Compressor Online. All rights reserved.
-  </footer>
-
   <script>
-    const imageInput = document.getElementById('imageInput');
     const qualityRange = document.getElementById('qualityRange');
     const qualityValue = document.getElementById('qualityValue');
-    const outputImage = document.getElementById('outputImage');
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
 
     qualityRange.addEventListener('input', () => {
       qualityValue.textContent = qualityRange.value;
     });
 
     function compressImage() {
-      const file = imageInput.files[0];
-      if (!file || file.type !== 'image/jpeg') {
-        alert('Please upload a JPEG image.');
+      const fileInput = document.getElementById('imageInput');
+      const file = fileInput.files[0];
+      const quality = qualityRange.value / 100;
+
+      if (!file) {
+        alert('Please upload a JPEG image first.');
         return;
       }
 
       const reader = new FileReader();
-      reader.onload = function(event) {
+      reader.onload = function (event) {
         const img = new Image();
-        img.onload = function() {
+        img.src = event.target.result;
+
+        img.onload = function () {
+          const canvas = document.createElement('canvas');
           canvas.width = img.width;
           canvas.height = img.height;
+          const ctx = canvas.getContext('2d');
           ctx.drawImage(img, 0, 0);
-          const quality = parseInt(qualityRange.value, 10) / 100;
-          const compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
-          outputImage.src = compressedDataUrl;
-        }
-        img.src = event.target.result;
-      }
+
+          canvas.toBlob(function (blob) {
+            const newImg = document.getElementById('output-img');
+            newImg.src = URL.createObjectURL(blob);
+            newImg.style.display = 'block';
+
+            const existingLink = document.querySelector('.download-link');
+            if (existingLink) existingLink.remove();
+
+            const downloadLink = document.createElement('a');
+            downloadLink.href = newImg.src;
+            downloadLink.download = 'compressed_image.jpg';
+            downloadLink.textContent = '⬇ Download Compressed Image';
+            downloadLink.classList.add('download-link');
+            document.querySelector('.container').appendChild(downloadLink);
+          }, 'image/jpeg', quality);
+        };
+      };
+
       reader.readAsDataURL(file);
     }
   </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </body>
 </html>
