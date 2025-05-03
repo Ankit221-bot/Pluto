@@ -2,99 +2,219 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Free online tools to compress images, JPEGs, and PDFs. Optimize file sizes for better performance. SEO-optimized and monetized with AdMob." />
-  <meta name="keywords" content="compress image, compress PDF, compress JPEG, image compression tool, PDF compressor, JPEG optimizer" />
-  <meta name="author" content="Ankit Kumar Dalai" />
-  <title>Online File Compression Tools</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Compress PDF, JPEG, and PNG files online for free. Fast, secure and easy file compression tool.">
+  <meta name="keywords" content="PDF compressor,Compressor Pro, Pro Compressor, image compressor, JPEG compressor, PNG compressor, image compression, file optimization, reduce file size">
+  <meta name="author" content="Pro Compressor">
+  <title>Compress PDF, JPEG & PNG Online - Free File Compressor</title>
+
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
-    .card {
-      transition: transform 0.2s ease-in-out;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to right, #f85032, #e73827);
+      color: #fff;
+      overflow-x: hidden;
     }
-    .card:hover {
+    header {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #fcdede;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .tool-card {
+      background: #fff;
+      color: #222;
+      border-radius: 16px;
+      padding: 2rem;
+      width: 300px;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+      animation: pulse-glow 2s infinite;
+    }
+
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+      transform: skewX(-25deg);
+    }
+
+    .tool-card:hover::before {
+      animation: shine 1.2s ease forwards;
+    }
+
+    @keyframes shine {
+      0% { left: -75%; }
+      100% { left: 125%; }
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+      }
+    }
+
+    .tool-card:hover {
       transform: scale(1.05);
     }
+
+    .tool-card i {
+      font-size: 3rem;
+      color: #e73827;
+      margin-bottom: 1rem;
+    }
+
+    .tool-card h3 {
+      margin: 0.5rem 0 0.3rem;
+      font-size: 1.5rem;
+    }
+
+    .tool-card p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .tool-card a {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #e73827;
+      color: #fff;
+      padding: 0.6rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .tool-card a:hover {
+      background: #c02016;
+    }
+
     .ad-space {
-      min-height: 90px;
-      margin: 20px 0;
-      background-color: #f9f9f9;
+      margin: 2.5rem auto;
+      max-width: 700px;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      border: 2px dashed #fff;
+      color: #fff;
+    }
+
+    footer {
       text-align: center;
-      padding: 10px;
-      border: 1px dashed #ccc;
+      padding: 2rem;
+      font-size: 0.95rem;
+      background: rgba(0, 0, 0, 0.4);
+      color: #eee;
+    }
+
+    @media (max-width: 768px) {
+      .tool-card {
+        width: 90%;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="container text-center py-4">
-    <h1>Free Online Compression Tools</h1>
-    <p>Optimize your files quickly — compress images, JPEGs, and PDFs</p>
+
+  <header>
+    <h1>Compress PDF, JPEG & PNG Files Online</h1>
+    <p>Fast, beautiful & easy-to-use tools to reduce your file sizes with just a click. No installation needed!</p>
   </header>
 
   <div class="container">
-    <!-- ca-app-pub-8366972084779868/1037179649 -->
+
+    <!-- Top Ad -->
     <div class="ad-space">
       <!-- ca-app-pub-8366972084779868/1037179649 -->
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-app-pub-8366972084779868~1932277151"
-           data-ad-slot="5555555555"
+           data-ad-slot="1111111111"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100">
-          <div class="card-body text-center">
-            <h5 class="card-title">Image Compression</h5>
-            <p class="card-text">Compress any image file to reduce its size without losing quality.</p>
-            <a href="img-compress.html" class="btn btn-primary">Go to Tool</a>
-          </div>
-        </div>
+    <section class="tools">
+       <div class="tool-card">
+        <i class="fas fa-file-image"></i>
+        <h3>Image Compressor</h3>
+        <p>Compress PNG and other image formats without quality loss.</p>
+        <a href="img-compressor.html">Compress Image</a>
       </div>
-      <div class="col">
-        <div class="card h-100">
-          <div class="card-body text-center">
-            <h5 class="card-title">JPEG Compression</h5>
-            <p class="card-text">Specifically optimize JPEG images with adjustable compression levels.</p>
-            <a href="jpeg-compress.html" class="btn btn-primary">Go to Tool</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <div class="card-body text-center">
-            <h5 class="card-title">PDF Compression</h5>
-            <p class="card-text">Reduce PDF file sizes while preserving essential content and layout.</p>
-            <a href="pdf-compress.html" class="btn btn-primary">Go to tool</a>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- ca-app-pub-8366972084779868/5310083685 -->
+      <div class="tool-card">
+        <i class="fas fa-file-pdf"></i>
+        <h3>PDF Compressor</h3>
+        <p>Make large PDF files smaller to share or store more efficiently.</p>
+        <a href="pdf-compressor.html">Compress PDF</a>
+      </div>
+
+     <div class="tool-card">
+        <i class="fas fa-image"></i>
+        <h3>JPEG Compressor</h3>
+        <p>Shrink your JPEGs without losing quality. Perfect for web uploads.</p>
+        <a href="jpeg-compressor.html">Compress JPEG</a>
+      </div>
+
+    </section>
+
+    <!-- Bottom Ad -->
     <div class="ad-space">
       <!-- ca-app-pub-8366972084779868/5310083685 -->
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-app-pub-8366972084779868~1932277151"
-           data-ad-slot="6666666666"
+           data-ad-slot="2222222222"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
   </div>
 
-  <footer class="container text-center py-4">
-    <p>&copy; 2025 YourCompany - All rights reserved.</p>
+  <footer>
+    &copy; 2025 Pro Compressor. All rights reserved.
   </footer>
 
+  <!-- AdSense JS -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </body>
 </html>
